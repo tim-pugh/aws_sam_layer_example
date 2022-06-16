@@ -4,9 +4,11 @@
 # Instrumenting Python code in AWS Lambda - https://docs.aws.amazon.com/lambda/latest/dg/python-tracing.html and its updated source code https://github.com/awsdocs/aws-lambda-developer-guide/blob/main/sample-apps/blank-python/function/lambda_function.py
 # AWS X-Ray SDK for Python - https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-python.html
 import os
+import sys
 import json
 import boto3
 import logging
+import traceback
 import jsonpickle
 from aws_xray_sdk.core import xray_recorder
 from aws_xray_sdk.core import patch_all
@@ -27,6 +29,8 @@ def lambda_handler(event, context):
         logger.info(f'## EVENT\r' + jsonpickle.encode(event))
         logger.info(f'## CONTEXT\r' + jsonpickle.encode(context))
 
+        a = 2/0
+        
         return {
             "statusCode": 200,
             "body": json.dumps(
