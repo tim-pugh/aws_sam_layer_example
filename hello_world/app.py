@@ -28,8 +28,9 @@ def lambda_handler(event, context):
                     jsonpickle.encode(dict(**os.environ)))
         logger.info(f'## EVENT\r' + jsonpickle.encode(event))
         logger.info(f'## CONTEXT\r' + jsonpickle.encode(context))
-
-        a = 2/0
+        
+        #Create a simple error to test error logging
+        #a = 2/0
         
         return {
             "statusCode": 200,
