@@ -24,8 +24,7 @@ patch_all()
 
 def lambda_handler(event, context):
     try:
-        logger.info(f'## ENVIRONMENT VARIABLES\r' +
-                    jsonpickle.encode(dict(**os.environ)))
+        logger.info(f'## ENVIRONMENT VARIABLES\r' + jsonpickle.encode(dict(**os.environ)))
         logger.info(f'## EVENT\r' + jsonpickle.encode(event))
         logger.info(f'## CONTEXT\r' + jsonpickle.encode(context))
         
